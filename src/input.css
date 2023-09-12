@@ -28,3 +28,8 @@
 #logo-input:checked ~ #menu #sidebar {
     left: 0;
 }
+
+.dropdown-item {
+    min-width: 48px;
+    width: calc(100% - 256px);
+}
