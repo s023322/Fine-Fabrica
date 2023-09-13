@@ -10,7 +10,6 @@ else {
 }
 
 
-
 function mode() {
     if (localStorage.theme == 'light') {
         localStorage.theme = 'dark'
