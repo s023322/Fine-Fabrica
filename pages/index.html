@@ -11,12 +11,18 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
-<body
-    class="bg-lm-primary dark:bg-dm-primary   text-lm-text dark:text-dm-text   text-[16px]">
-    <div
-        class="bg-[#D1CFE2BF] dark:bg-[#001929BF]   fixed w-full h-12 overflow-hidden text-center">
+<body class="bg-lm-primary dark:bg-dm-primary   text-lm-text dark:text-dm-text   text-[16px]">
+
+    <div class="absolute w-full">
+        <img src="/src/placeholder.jpg" class="select-none relative mx-auto my-6 w-[90%] h-[560px] object-cover rounded-xl">
+    </div>
+
+
+
+
+    <div class="bg-[#D1CFE2BF] dark:bg-[#001929BF]   fixed w-full h-12 overflow-hidden text-center   select-none">
         <ul class="list-none m-0 p-0 font-bold leading-[48px]">
-            <li>
+            <li class="block md:hidden">
                 <input type="checkbox" id="logo-input" class="absolute top-2 left-2 w-8 h-8 opacity-0" />
                 <label id="menu" class="absolute pointer-events-none" for="input">
                     <div id="sidebar" class="bg-lm-secondary dark:bg-dm-secondary">
@@ -33,23 +39,23 @@
                             <li class="w-min mx-auto">
                                 <a href="/pages/index.html" class="block">ABOUT</a>
                             </li>
+                            <li class="w-min mx-auto py-4 text-2xl leading-8">
+                                <button id="mode" class="icon" type="button" onclick="mode()">light_mode</button>
+                            </li>
                         </ul>
                     </div>
                 </label>
-                <img class="absolute float-left w-8 my-2 ml-2 mr-4 pointer-events-none" src="/src/fine fabrica.svg">
             </li>
+            <img class="absolute float-left w-8 my-2 ml-2 mr-4 pointer-events-none" src="/src/fine fabrica.svg">
 
             <li class="float-right px-4">
-                <h1>LOGIN</h1>
+                <a href="/pages/index.html">LOGIN</a>
             </li>
             <li class="float-right px-4">
                 <div class="bg-main-red rounded-lg px-2 my-2 leading-8">
-                    <h1 class="text-lm-secondary dark:text-dm-secondary">
-                        BECOME A MEMBER</h1>
+                    <a href="/pages/index.html" class="text-lm-secondary dark:text-dm-secondary">
+                        BECOME A MEMBER</a>
                 </div>
-            </li>
-            <li class="float-right px-4">
-                <button id="mode" class="icon" type="button" onclick="mode()">light_mode</button>
             </li>
 
             <div class="ml-12 opacity-0 md:opacity-100 transition-opacity duration-100">
@@ -65,10 +71,12 @@
                 <li class="float-left px-4">
                     <a href="/pages/index.html">ABOUT</a>
                 </li>
+                <li class="float-right px-4">
+                    <button id="mode" class="icon" type="button" onclick="mode()">light_mode</button>
+                </li>
             </div>
         </ul>
     </div>
-    <div class="bg-main-blue w-12 h-12 top-[1000px] relative"></div>
 
     <script src="/src/theme.js"></script>
 </body>
