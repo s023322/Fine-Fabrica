@@ -12,13 +12,13 @@ template.innerHTML = `
                             <a href="/pages/index.html" class="block">HOME</a>
                         </li>
                         <li class="w-min mx-auto">
-                            <a href="/pages/index.html" class="block">OFFERS</a>
+                            <a href="/pages/services.html" class="block">SERVICES</a>
                         </li>
                         <li class="w-min mx-auto">
-                            <a href="/pages/index.html" class="block">CALENDAR</a>
+                            <a href="/pages/calendar.html" class="block">CALENDAR</a>
                         </li>
                         <li class="w-min mx-auto">
-                            <a href="/pages/index.html" class="block">ABOUT</a>
+                            <a href="/pages/about.html" class="block">ABOUT</a>
                         </li>
                         <li class="w-min mx-auto py-4 text-2xl leading-8">
                             <button id="mode" class="icon" type="button" onclick="mode()">light_mode</button>
@@ -44,7 +44,7 @@ template.innerHTML = `
                 <a href="/pages/">HOME</a>
             </li>
             <li class="float-left px-4">
-                <a href="/pages/offers.html">OFFERS</a>
+                <a href="/pages/services.html">SERVICES</a>
             </li>
             <li class="float-left px-4">
                 <a href="/pages/calendar.html">CALENDAR</a>

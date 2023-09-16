@@ -609,10 +609,6 @@ video {
   display: block;
 }
 
-.contents {
-  display: contents;
-}
-
 .h-12 {
   height: 3rem;
 }
