@@ -39,7 +39,7 @@ template.innerHTML = `
             </div>
         </li>
 
-        <div class="ml-12 opacity-0 md:opacity-100 transition-opacity duration-100">
+        <div class="ml-12 opacity-0 md:opacity-100 display-inherit md:display-hidden transition-opacity duration-100">
             <li class="float-left px-4">
                 <a href="/pages/">HOME</a>
             </li>
