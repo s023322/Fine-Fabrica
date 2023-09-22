@@ -25,6 +25,10 @@
     transition: left 100ms ease-in-out;
 }
 
+#logo-input: {
+    cursor: pointer;
+}
+
 #logo-input:checked ~ #menu #sidebar {
     left: 0;
 }
