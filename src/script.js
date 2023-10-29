@@ -23,7 +23,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
-connectAuthEmulator(auth, "http://127.0.0.1:9099");
+//connectAuthEmulator(auth, "http://127.0.0.1:9099");
 const provider = new GoogleAuthProvider();
 
 const signInButton = document.getElementById("google");
