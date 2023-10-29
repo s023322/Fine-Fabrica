@@ -1,4 +1,4 @@
-<div class="bg-[#D1CFE2BF] dark:bg-[#001929BF]   fixed w-full h-12 overflow-hidden text-center   select-none">
+<div class="bg-[#D1CFE2BF] dark:bg-[#001929BF]   fixed top-0 w-full h-12 overflow-hidden text-center   select-none">
     <ul class="list-none m-0 p-0 font-bold leading-[48px]">
         <li class="block md:hidden">
             <input type="checkbox" id="logo-input" class="absolute top-2 left-2 w-8 h-8 opacity-0" />
@@ -26,13 +26,15 @@
         </li>
         <img class="absolute float-left w-8 my-2 ml-2 mr-4 pointer-events-none" src="/src/fine fabrica.svg">
 
-        <li class="float-right px-4">
+        <!--<li class="float-right px-4">
             <a href="/pages/login.html">LOGIN</a>
-        </li>
+        </li>-->
         <li class="float-right px-4">
             <div class="bg-main-red rounded-lg px-2 my-2 leading-8">
-                <a href="/pages/index.html" class="text-lm-secondary dark:text-dm-secondary">
-                    BECOME A MEMBER</a>
+                <a href="/pages/login.html" class="text-lm-secondary dark:text-dm-secondary">
+                    <p id="account" class="inline-block align-middle">LOGIN / SIGN UP</p>
+                    <img src="" id="pfp" class="hidden w-6 h-6 rounded-full align-middle relative left-1">
+                </a>
             </div>
         </li>
 

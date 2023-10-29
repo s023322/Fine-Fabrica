@@ -14,19 +14,27 @@
 <body class="bg-lm-primary dark:bg-dm-primary   text-lm-text dark:text-dm-text   text-[16px]">
 
     <script src="/src/script.js" type="module"></script>
+    
+    <div class="inline-block relative bg-lm-secondary  dark:bg-dm-secondary rounded-lg w-full md:w-[calc(100%-256px)] md:ml-32 min-h-[544px] md:h-auto h-[848px] top-[112px] mb-16">
+        <div class="float-left space-y-4 p-16 w-full md:w-1/2">
+            <input type="text" id="username" placeholder="John Doe" name="username" class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue" required> <br>
+            <input type="text" id="email" placeholder="name@example.com" name="email" class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue" required> <br>
+            <input type="password" id="pw" placeholder="Password" name="pw" class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue text-main-blue" required> <br>
+            <button class="w-full h-16 rounded-lg bg-main-blue text-lm-secondary dark:text-dm-secondary" id="signUp"><b>SIGN UP</b></button>
+        </div>
+        <div class="md:float-left space-y-4 p-16 w-full md:w-1/2">
+            <input type="text" placeholder="name@example.com" name="email" class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue" required> <br>
+            <input type="password" placeholder="Password" name="pw" class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue text-main-blue" required> <br>
+            <button class="w-full h-16 rounded-lg bg-main-blue text-lm-secondary dark:text-dm-secondary" id="sign" onclick="logIn()"><b>LOG IN</b></button>
+        </div>
+        <div class="w-full px-16 pb-16">
+            <button class="w-full h-16 rounded-lg bg-main-red text-lm-secondary dark:text-dm-secondary" id="google"><b>SIGN IN WITH GOOGLE</b></button>
+        </div>
+    </div>
 
     <script src="/src/theme.js" id="theme"></script>
     
     <script src="/src/constants.js"></script>
-
-    <div class="block relative bg-lm-secondary rounded-lg mx-32 dropdown-item min-w-[512px] h-[512px] top-[112px] mb-[64px]">
-        <!--<form class="space-y-4 p-16 w-1/2">
-            <input type="text" placeholder="name@example.com" name="email" class="w-full px-4 h-16 rounded-lg bg-lm-primary placeholder-main-blue" required> <br>
-            <input type="password" placeholder="Password" name="pw" class="w-full px-4 h-16 rounded-lg bg-lm-primary placeholder-main-blue text-main-blue" required> <br>
-            <input type="password" placeholder="Repeat Password" name="rpw" class="w-full px-4 h-16 rounded-lg bg-lm-primary placeholder-main-blue text-main-blue" required> <br>
-        </form>-->
-        <button class="w-full h-16 rounded-lg bg-main-blue text-lm-secondary" id="google">SIGN IN WITH GOOGLE</button>
-    </div>
 </body>
 
 </html>
