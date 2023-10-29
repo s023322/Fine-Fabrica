@@ -3,7 +3,6 @@
   "redirects": [
     { "source": "/", "destination": "/pages", "permanent": true }
   ],
-  {
   "headers": [
     {
       "source": "/",
@@ -19,5 +18,4 @@
       ]
     }
   ]
-}
 }
