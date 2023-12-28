@@ -1,7 +1,12 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
 //"firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, signInWithRedirect, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, signInWithRedirect, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
 //"firebase/app";
+
+if (document.getElementById("logged-out")) {
+  document.getElementById("logged-out").classList.remove("hidden");
+  document.getElementById("logged-in").classList.add("hidden");
+}
 
 const firebaseConfig = {
 
@@ -26,8 +31,11 @@ const auth = getAuth();
 //connectAuthEmulator(auth, "http://127.0.0.1:9099");
 const provider = new GoogleAuthProvider();
 
-const signInButton = document.getElementById("google");
+if (!document.getElementById("google")) {
+  throw "";
+}
 
+const signInGoogleButton = document.getElementById("google");
 
 const userSignIn = async() => {
   window.mobileCheck = function() {
@@ -40,6 +48,8 @@ const userSignIn = async() => {
     signInWithPopup(auth, provider)
     .then((result) => {
       const user = result.user;
+      localStorage.setItem('username', user.username);
+      localStorage.setItem('pfp', user.photoURL);
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -56,14 +66,20 @@ onAuthStateChanged(auth, (user) => {
     document.getElementById("pfp").classList.add('inline-block');
     document.getElementById("pfp").src = user.photoURL;
     document.getElementById("account").innerHTML = user.displayName;
+    document.getElementById("logged-out").classList.add("hidden");
+    document.getElementById("logged-in").classList.remove("hidden");
+    localStorage.setItem('username', user.username);
+    localStorage.setItem('pfp', user.photoURL);
   }
   else {
     document.getElementById("pfp").classList.add('hidden');
     document.getElementById("pfp").classList.remove('inline-block');
+    document.getElementById("logged-out").classList.remove("hidden");
+    document.getElementById("logged-in").classList.add("hidden");
   }
 })
 
-signInButton.addEventListener("click", userSignIn);
+signInGoogleButton.addEventListener("click", userSignIn);
 
 const signUpButton = document.getElementById("signUp");
 
@@ -78,8 +94,11 @@ const signUp = async() => {
     updateProfile(user, {displayName: username, photoURL: "https://openclipart.org/image/300px/svg_to_png/194077/Placeholder.png"});
     document.getElementById("pfp").classList.remove('hidden');
     document.getElementById("pfp").classList.add('inline-block');
-    document.getElementById("pfp").src = user.photoURL;
-    document.getElementById("account").innerHTML = user.displayName;
+    document.getElementById("pfp").src = "https://openclipart.org/image/300px/svg_to_png/194077/Placeholder.png";
+    document.getElementById("account").innerHTML = username;
+    localStorage.setItem('username', username);
+    localStorage.setItem('pfp', user.photoURL);
+
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -88,3 +107,37 @@ const signUp = async() => {
 }
 
 signUpButton.addEventListener("click", signUp);
+
+const loginButton = document.getElementById("login");
+
+const login = async() => {
+  var email = document.getElementById("lemail").value;
+  var password = document.getElementById("lpw").value;
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    document.getElementById("pfp").classList.remove('hidden');
+    document.getElementById("pfp").classList.add('inline-block');
+    document.getElementById("pfp").src = user.photoURL;
+    document.getElementById("account").innerHTML = user.username;
+    localStorage.setItem('username', user.username);
+    localStorage.setItem('pfp', user.photoURL);
+  })
+}
+
+loginButton.addEventListener("click", login);
+
+const signOutButton = document.getElementById("signOut");
+
+
+const logOut = async() => {
+  auth.signOut().then(function() {
+    console.log("signed out");
+  }).catch(function(error) {
+    console.log("Error Signing Out");
+  })
+  localStorage.setItem('username', null);
+  localStorage.setItem('pfp', null);
+}
+
+signOutButton.addEventListener("click", logOut);
