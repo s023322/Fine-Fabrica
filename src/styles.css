@@ -970,7 +970,7 @@ video {
 
 :is(.dark .dark\:bg-dm-secondary) {
   --tw-bg-opacity: 1;
-  background-color: rgb(0 25 41 / var(--tw-bg-opacity));
+  background-color: rgb(39 31 40 / var(--tw-bg-opacity));
 }
 
 :is(.dark .dark\:text-dm-secondary) {
