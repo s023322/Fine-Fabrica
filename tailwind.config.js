@@ -11,7 +11,7 @@ module.exports = {
       'lm-text': '#0E0004',
       'dm-primary': '#090C0A',
       'lm-primary': '#9CADCE',
-      'dm-secondary': '#001929',
+      'dm-secondary': '#271F28',
       'lm-secondary': '#D1CFE2',
       'main-blue': '#334195',
       'main-red': '#A5243D',
