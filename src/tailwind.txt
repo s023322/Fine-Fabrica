@@ -1,1 +1,10 @@
 npx tailwindcss -i ./src/input.css -o ./src/styles.css --watch
+
+About us
+Fine Fabrica is a community-driven makerspace at the heart of Villanova, PA. We provide a space for people of all ages, incomes, and talents to collaborate, learn new skills, and come together and make. We’re a community of local engineers, makers, artists, and designers who work together to create a productive and creative environment.
+
+What we do
+We work together using our shared resources to plan and create new and innovative products, ideas, and designs. We cover and teach a wide range of subjects and skills including science, technology, engineering, and art. Here at Fine Fabrica, we value collaboration as the best way to learn and retain value from our experiences.
+
+Why you should join
+We have cost effective bookings and 24/7 access for Tier 2 & 3 Members. Tier 3 Members will also get 2% cash back on materials bought at sponsor stores.
