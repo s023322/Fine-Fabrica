@@ -824,6 +824,11 @@ video {
   padding-bottom: 1rem;
 }
 
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
 .pb-16 {
   padding-bottom: 4rem;
 }
@@ -865,20 +870,12 @@ video {
   line-height: 2rem;
 }
 
-.leading-\[48px\] {
-  line-height: 48px;
-}
-
-.leading-10 {
-  line-height: 2.5rem;
-}
-
-.leading-\[200\%\] {
-  line-height: 200%;
-}
-
 .leading-\[250\%\] {
   line-height: 250%;
+}
+
+.leading-\[48px\] {
+  line-height: 48px;
 }
 
 .text-lm-secondary {
@@ -1016,6 +1013,11 @@ video {
     --tw-space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(0px * var(--tw-space-y-reverse));
+  }
+
+  .md\:px-16 {
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 
   .md\:opacity-100 {
