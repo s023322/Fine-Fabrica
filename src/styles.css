@@ -869,6 +869,18 @@ video {
   line-height: 48px;
 }
 
+.leading-10 {
+  line-height: 2.5rem;
+}
+
+.leading-\[200\%\] {
+  line-height: 200%;
+}
+
+.leading-\[250\%\] {
+  line-height: 250%;
+}
+
 .text-lm-secondary {
   --tw-text-opacity: 1;
   color: rgb(209 207 226 / var(--tw-text-opacity));

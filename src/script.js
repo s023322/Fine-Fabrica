@@ -36,7 +36,6 @@ if (!document.getElementById("google")) {
 }
 
 const signInGoogleButton = document.getElementById("google");
-
 const userSignIn = async() => {
   window.mobileCheck = function() {
     let check = false;
@@ -48,7 +47,8 @@ const userSignIn = async() => {
     signInWithPopup(auth, provider)
     .then((result) => {
       const user = result.user;
-      localStorage.setItem('username', user.username);
+      console.log(user);
+      localStorage.setItem('username', user.displayName);
       localStorage.setItem('pfp', user.photoURL);
     }).catch((error) => {
       const errorCode = error.code;
@@ -68,7 +68,7 @@ onAuthStateChanged(auth, (user) => {
     document.getElementById("account").innerHTML = user.displayName;
     document.getElementById("logged-out").classList.add("hidden");
     document.getElementById("logged-in").classList.remove("hidden");
-    localStorage.setItem('username', user.username);
+    localStorage.setItem('username', user.displayName);
     localStorage.setItem('pfp', user.photoURL);
   }
   else {
@@ -91,13 +91,13 @@ const signUp = async() => {
   createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     const user = userCredential.user;
-    updateProfile(user, {displayName: username, photoURL: "https://openclipart.org/image/300px/svg_to_png/194077/Placeholder.png"});
+    updateProfile(user, {displayName: username, photoURL: "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg"});
     document.getElementById("pfp").classList.remove('hidden');
     document.getElementById("pfp").classList.add('inline-block');
-    document.getElementById("pfp").src = "https://openclipart.org/image/300px/svg_to_png/194077/Placeholder.png";
+    document.getElementById("pfp").src = "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg";
     document.getElementById("account").innerHTML = username;
     localStorage.setItem('username', username);
-    localStorage.setItem('pfp', user.photoURL);
+    localStorage.setItem('pfp', "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg");
 
   })
   .catch((error) => {
@@ -138,6 +138,9 @@ const logOut = async() => {
   })
   localStorage.setItem('username', null);
   localStorage.setItem('pfp', null);
+  document.getElementById("pfp").classList.add('hidden');
+  document.getElementById("pfp").classList.remove('inline-block');
+  document.getElementById("account").innerHTML = "LOGIN / SIGN UP";
 }
 
 signOutButton.addEventListener("click", logOut);

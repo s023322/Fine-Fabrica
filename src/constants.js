@@ -16,11 +16,18 @@ else {
 }
 
 function checkLoaded() {
-    console.log("alsdkjaslkd");
     if (!document.getElementById('theme_change')) {
         window.setTimeout(checkLoaded, 50);
     }
     else {
+
+        if (localStorage.getItem('username') != 'null' && localStorage.getItem('pfp') != 'null') {
+          document.getElementById("pfp").classList.remove('hidden');
+          document.getElementById("pfp").classList.add('inline-block');
+          document.getElementById("pfp").src = localStorage.getItem('pfp');
+          document.getElementById("account").innerHTML = localStorage.getItem('username');
+        }
+        
         if (localStorage.theme == 'dark') {
             document.getElementById('theme_change').innerHTML = "light_mode";
         }
@@ -30,6 +37,9 @@ function checkLoaded() {
     }
 }
 checkLoaded();
+
+console.log(localStorage.getItem('pfp'));
+console.log(localStorage.getItem('username'));
 
 /*template.innerHTML = `
 <div class="bg-[#D1CFE2BF] dark:bg-[#001929BF]   fixed w-full h-12 overflow-hidden text-center   select-none">
