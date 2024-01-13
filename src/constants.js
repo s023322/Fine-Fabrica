@@ -4,18 +4,32 @@ fetch('/pages/constant.html')
     .then(response => response.text())
     .then(data => {
         theme.insertAdjacentHTML("beforebegin", data);
-    });
+    });   
 
 if (localStorage.theme == 'dark') {
     localStorage.theme = 'dark';
     document.documentElement.classList.add('dark');
-    document.getElementById('theme_change').innerHTML = "light_mode";
 }
 else {
     localStorage.theme = 'light';
     document.documentElement.classList.remove('dark');
-    document.getElementById('theme_change').innerHTML = "dark_mode";
 }
+
+function checkLoaded() {
+    console.log("alsdkjaslkd");
+    if (!document.getElementById('theme_change')) {
+        window.setTimeout(checkLoaded, 50);
+    }
+    else {
+        if (localStorage.theme == 'dark') {
+            document.getElementById('theme_change').innerHTML = "light_mode";
+        }
+        else {
+            document.getElementById('theme_change').innerHTML = "dark_mode";
+        }
+    }
+}
+checkLoaded();
 
 /*template.innerHTML = `
 <div class="bg-[#D1CFE2BF] dark:bg-[#001929BF]   fixed w-full h-12 overflow-hidden text-center   select-none">
