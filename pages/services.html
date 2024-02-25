@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/src/styles.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body class="bg-lm-primary dark:bg-dm-primary   text-lm-text dark:text-dm-text   text-[16px]">
@@ -35,7 +36,7 @@
                         <li>All non-membership benefits</li>
                         <li>50% off all bookings and events</li>
                         <li>Access to 3D printing and on-site computers</li>
-                        <li><a href="/pages/coming-soon.html" class="bg-lm-primary dark:bg-dm-primary p-2 rounded-lg">$40.00 a month</a></li>
+                        <li><button id="tier1" class="bg-lm-primary dark:bg-dm-primary p-2 rounded-lg">$40.00 a month</button></li>
                     </ul>
                 </div>
                 <div class="w-full md:float-left md:w-1/4">
@@ -45,7 +46,7 @@
                         <li>Free 24/7 access to the workshop</li>
                         <li>Free in-makerspace storage</li>
                         <li>Access to makerspace shared resources</li>
-                        <li><a href="/pages/coming-soon.html" class="bg-lm-secondary dark:bg-dm-secondary p-2 rounded-lg">$75.00 a month</a></li>
+                        <li><button id="tier2" class="bg-lm-secondary dark:bg-dm-secondary p-2 rounded-lg">$75.00 a month</button></li>
                     </ul>
                 </div>
                 <div class="w-full md:float-left md:w-1/4 bg-lm-primary dark:bg-dm-primary rounded-lg">
@@ -54,7 +55,7 @@
                             <li>All Tier 2 benefits</li>
                             <li>Infinite, free filament for 3D printing</li>
                             <li>Account to purchase materials with 2% cash back at sponsoring stores</li>
-                            <li><a href="/pages/coming-soon.html" class="bg-lm-primary dark:bg-dm-primary p-2 rounded-lg">$100.00 a month</a></li>
+                            <li><button id="tier3" class="bg-lm-primary dark:bg-dm-primary p-2 rounded-lg">$100.00 a month</button></li>
                         </ul>
                 </div>
             </b>
@@ -68,6 +69,8 @@
     <script src="/src/constants.js"></script>
 
     <script src="/src/script.js" type="module"></script>
+
+    <script src="/src/stripe.js" type="module"></script>
 </body>
 
 </html>
