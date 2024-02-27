@@ -11,8 +11,8 @@ document.getElementById("tier1").addEventListener("click", function () {
       },
     ],
     mode: "subscription",
-    successUrl: "http://localhost:5500/pages/membership.html",
-    cancelUrl: "http://localhost:5500/pages/services.html",
+    successUrl: "/pages/membership.html",
+    cancelUrl: "/pages/services.html",
   });
 });
 
@@ -25,8 +25,8 @@ document.getElementById("tier2").addEventListener("click", function () {
       },
     ],
     mode: "subscription",
-    successUrl: "http://localhost:5500/pages/membership.html",
-    cancelUrl: "http://localhost:5500/pages/services.html",
+    successUrl: "/pages/membership.html",
+    cancelUrl: "/pages/services.html",
   });
 });
 
@@ -39,7 +39,7 @@ document.getElementById("tier3").addEventListener("click", function () {
       },
     ],
     mode: "subscription",
-    successUrl: "http://localhost:5500/pages/membership.html",
-    cancelUrl: "http://localhost:5500/pages/services.html",
+    successUrl: "/pages/membership.html",
+    cancelUrl: "/pages/services.html",
   });
 });
