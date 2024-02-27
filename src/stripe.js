@@ -11,8 +11,8 @@ document.getElementById("tier1").addEventListener("click", function () {
       },
     ],
     mode: "subscription",
-    successUrl: "/pages/membership.html",
-    cancelUrl: "/pages/services.html",
+    successUrl: "https://www.finefabrica.us.eu.org/pages/membership",
+    cancelUrl: "https://www.finefabrica.us.eu.org/pages/services",
   });
 });
 
@@ -25,8 +25,8 @@ document.getElementById("tier2").addEventListener("click", function () {
       },
     ],
     mode: "subscription",
-    successUrl: "/pages/membership.html",
-    cancelUrl: "/pages/services.html",
+    successUrl: "https://www.finefabrica.us.eu.org/pages/membership",
+    cancelUrl: "https://www.finefabrica.us.eu.org/pages/services",
   });
 });
 
@@ -39,7 +39,7 @@ document.getElementById("tier3").addEventListener("click", function () {
       },
     ],
     mode: "subscription",
-    successUrl: "/pages/membership.html",
-    cancelUrl: "/pages/services.html",
+    successUrl: "https://www.finefabrica.us.eu.org/pages/membership",
+    cancelUrl: "https://www.finefabrica.us.eu.org/pages/services",
   });
 });
