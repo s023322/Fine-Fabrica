@@ -15,41 +15,77 @@
   <body
     class="bg-lm-primary dark:bg-dm-primary text-lm-text dark:text-dm-text text-[16px]"
   >
-    <div class="relative w-full top-12">
-      <a
-        href="https://www.pexels.com/photo/male-master-working-with-metal-tools-in-garage-3822844/"
-        ><img
-          src="/src/Workshop.jpg"
-          class="select-none relative mx-auto my-16 w-full md:w-[calc(100%-256px)] h-[560px] object-cover rounded-lg"
-      /></a>
+    <img
+      class="absolute m-[-32px] flex sharpblur w-full justify-center object-cover h-[608px] mx-auto"
+      src="/src/Forge.jpeg"
+    />
+    <div
+      class="absolute flex w-full justify-center top-32 h-24 mx-auto text-dm-text"
+    >
+      <img
+        class="float-left ml-4 w-24 pointer-events-none"
+        src="/src/fine fabrica.svg"
+      />
+      <p
+        class="mx-4 my-auto float-left font-black w-50% pointer-events-none text-5xl bg-lm-text p-2 rounded-lg mr-20 sm:mr-0"
+      >
+        FINE FABRICA
+      </p>
+      <p class="px-2 py-1 rounded-lg absolute top-28 bg-lm-text">
+        A maker space in the heart of Philadelphia
+      </p>
+    </div>
+
+    <div class="absolute inline-block w-full top-80 h-40">
+      <div
+        class="w-full max-w-7xl px-0 md:px-[128px] mx-auto space-x-[-32px] text-lm-secondary dark:text-dm-secondary"
+      >
+        <img
+          class="relative w-[calc((100%+54px)/3)] border-8 rounded-lg h-40 inline-block top-8 object-cover"
+          src="/src/Collaborating.jpg"
+        />
+        <img
+          class="relative w-[calc((100%+54px)/3)] text-lm-primary dark:text-dm-primary border-8 rounded-lg h-40 inline-block top-0 object-cover z-10"
+          src="/src/Woodworking.jpg"
+        />
+        <img
+          class="relative w-[calc((100%+54px)/3)] border-8 rounded-lg h-40 inline-block top-8 object-cover"
+          src="/src/Painting.jpg"
+        />
+      </div>
     </div>
 
     <div
-      class="inline-block relative bg-lm-secondary dark:bg-dm-secondary rounded-lg w-full md:w-[calc(100%-256px)] md:ml-32 py-16 md:px-16 top-[112px] mb-16"
+      class="inline-block relative bg-lm-secondary dark:bg-dm-secondary rounded-lg w-full md:w-[calc(100%-256px)] md:ml-32 py-8 md:px-16 top-[640px] mb-16"
     >
-      <h class="float-left text-[24px] text-center w-full mb-8"
-        ><b>WHAT WE DO</b></h
+      <h class="float-left font-black text-[24px] text-center w-full mb-8"
+        >WHAT WE DO</h
       >
-      <b
-        class="relative flex space-y-16 md:space-y-0 float-none text-center p-8"
+      <span
+        class="relative flex md:space-y-0 float-none text-center px-8"
       >
         <p
-          class="w-full text-[16px] bg-lm-primary dark:bg-dm-primary p-8 rounded-lg"
+          class="w-full text-[16px]"
         >
           We work together using our shared resources to plan and create new and
           innovative products, ideas, and designs. We cover and teach a wide
           range of subjects and skills including science, technology,
           engineering, and art. Here at Fine Fabrica, we value collaboration as
           the best way to learn and retain value from our experiences.
-        </p> </b
-      ><h class="float-left mt-32 text-[24px] text-center w-full mb-8"
-        ><b>WHY YOU SHOULD JOIN</b></h
+        </p> </span
       >
-      <b
-        class="relative flex space-y-16 md:space-y-0 float-none text-center p-8"
+      </span>
+    </div>
+    <div class="inline-block relative bg-lm-secondary dark:bg-dm-secondary rounded-lg w-full md:w-[calc(100%-256px)] md:ml-32 py-8 md:px-16 top-[608px] mb-32">
+      <h
+        class="float-left font-black text-[24px] text-center w-full mb-8"
+        >WHY YOU SHOULD JOIN</h
+      >
+      <span
+        class="relative flex md:space-y-0 float-none text-center px-8"
       >
         <p
-          class="w-full text-[16px] bg-lm-primary dark:bg-dm-primary p-8 rounded-lg"
+          class="w-full text-[16px]"
         >
           You can have fun, be creative, or learn something new at Fine Fabrica.
           We believe that the joy of making shouldn't be gatekept by high prices
@@ -57,9 +93,8 @@
           24/7 access for Tier 2 & 3 Members. Tier 3 Members will also get 2%
           cash back on materials bought at sponsor stores.
         </p>
-      </b>
     </div>
-    <div class="inline-block relative my-16 w-full"></div>
+    <div class="inline-block relative w-full top-[544px] h-16"></div>
 
     <script src="/src/theme.js" id="theme"></script>
 

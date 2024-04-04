@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" class="font-dm">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fine Fabrica - Calendar</title>
-    <link rel="icon" type="image/x-icon" href="/src/fine fabrica.svg">
-    <link rel="stylesheet" href="/src/styles.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-</head>
+    <link rel="icon" type="image/x-icon" href="/src/fine fabrica.svg" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
 
-<body class="bg-lm-primary dark:bg-dm-primary   text-lm-text dark:text-dm-text   text-[16px]">
-
-    <iframe class="relative p-16 aspect-square w-full h-full rounded-lg" id="calendar" src="https://calendar.google.com/calendar/embed?height=1080&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&title=Fine%20Fabrica&src=Y19hZjJkZWUzMTlkMzhhZjQzZjU3NTFlOGVjYmZjMDQzNzA3NGYwNjdiNDMwNDVhM2ZiNWNlNDgxN2YzMGI1NTA0QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23795548" width="40" height="40" frameborder="0" scrolling="yes"></iframe>
+  <body
+    class="bg-lm-primary dark:bg-dm-primary text-lm-text dark:text-dm-text text-[16px]"
+  >
+    <div class="relative p-16 top-12 w-full h-full rounded-lg">
+      <iframe
+        class="relative aspect-square w-full h-full rounded-lg"
+        id="calendar"
+        src="https://calendar.google.com/calendar/embed?height=1080&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&title=Fine%20Fabrica&src=Y19hZjJkZWUzMTlkMzhhZjQzZjU3NTFlOGVjYmZjMDQzNzA3NGYwNjdiNDMwNDVhM2ZiNWNlNDgxN2YzMGI1NTA0QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23795548"
+        width="40"
+        height="40"
+        frameborder="0"
+        scrolling="yes"
+      ></iframe>
+    </div>
 
     <script src="/src/theme.js" id="theme"></script>
-    
+
     <script src="/src/constants.js"></script>
 
     <script src="/src/script.js" type="module"></script>
-</body>
-
+  </body>
 </html>

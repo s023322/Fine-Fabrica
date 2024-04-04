@@ -1,45 +1,43 @@
 const theme = document.getElementById("theme");
 
-fetch('/pages/constant.html')
-    .then(response => response.text())
-    .then(data => {
-        theme.insertAdjacentHTML("beforebegin", data);
-    });   
+fetch("/pages/constant.html")
+  .then((response) => response.text())
+  .then((data) => {
+    theme.insertAdjacentHTML("beforebegin", data);
+  });
 
-if (localStorage.theme == 'dark') {
-    localStorage.theme = 'dark';
-    document.documentElement.classList.add('dark');
-}
-else {
-    localStorage.theme = 'light';
-    document.documentElement.classList.remove('dark');
+if (localStorage.theme == "dark") {
+  localStorage.theme = "dark";
+  document.documentElement.classList.add("dark");
+} else {
+  localStorage.theme = "light";
+  document.documentElement.classList.remove("dark");
 }
 
 function checkLoaded() {
-    if (!document.getElementById('theme_change')) {
-        window.setTimeout(checkLoaded, 50);
+  if (!document.getElementById("theme_change")) {
+    window.setTimeout(checkLoaded, 50);
+  } else {
+    if (
+      localStorage.getItem("username") != "null" &&
+      localStorage.getItem("username") != "undefined" &&
+      localStorage.getItem("pfp") != "null"
+    ) {
+      document.getElementById("pfp").classList.remove("hidden");
+      document.getElementById("pfp").classList.add("inline-block");
+      document.getElementById("pfp").src = localStorage.getItem("pfp");
+      document.getElementById("account").innerHTML =
+        localStorage.getItem("username");
     }
-    else {
 
-        if (localStorage.getItem('username') != 'null' && localStorage.getItem('pfp') != 'null') {
-          document.getElementById("pfp").classList.remove('hidden');
-          document.getElementById("pfp").classList.add('inline-block');
-          document.getElementById("pfp").src = localStorage.getItem('pfp');
-          document.getElementById("account").innerHTML = localStorage.getItem('username');
-        }
-        
-        if (localStorage.theme == 'dark') {
-            document.getElementById('theme_change').innerHTML = "light_mode";
-        }
-        else {
-            document.getElementById('theme_change').innerHTML = "dark_mode";
-        }
+    if (localStorage.theme == "dark") {
+      document.getElementById("theme_change").innerHTML = "light_mode";
+    } else {
+      document.getElementById("theme_change").innerHTML = "dark_mode";
     }
+  }
 }
 checkLoaded();
-
-console.log(localStorage.getItem('pfp'));
-console.log(localStorage.getItem('username'));
 
 /*template.innerHTML = `
 <div class="bg-[#D1CFE2BF] dark:bg-[#001929BF]   fixed w-full h-12 overflow-hidden text-center   select-none">

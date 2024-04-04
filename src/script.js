@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
 //"firebase/app";
 import {
   getAuth,
@@ -10,9 +10,44 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
   signInWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+
+import {
+  getDatabase,
+  ref,
+  set,
+  get,
+  child,
+} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+
 //"firebase/app";
 
+var photoUrl;
+
+if (window.location.hostname.includes("account")) {
+  document.getElementById("setpfp").addEventListener("click", function () {
+    var uri = document.getElementById("imguri").value;
+    console.log(uri);
+    uri = uri.split("?")[0];
+    var parts = uri.split(".");
+    var extension = parts[parts.length - 1];
+    var imageTypes = ["jpg", "jpeg", "tiff", "png", "gif", "bmp", "webp"];
+    if (imageTypes.indexOf(extension) !== -1) {
+      photoUrl = document.getElementById("imguri").value;
+      localStorage.setItem("pfp", photoUrl);
+      document.getElementById("pfp").src = photoUrl;
+      document.getElementById("imguri").classList.remove("text-main-red");
+    } else {
+      document.getElementById("imguri").classList.add("text-main-red");
+    }
+  });
+
+  document.getElementById("setu").addEventListener("click", function () {
+    var newU = document.getElementById("newu").value;
+    document.getElementById("account").innerHTML = newU;
+    localStorage.setItem("username", newU);
+  });
+}
 if (document.getElementById("logged-out")) {
   document.getElementById("logged-out").classList.remove("hidden");
   document.getElementById("logged-in").classList.add("hidden");
@@ -24,6 +59,8 @@ const firebaseConfig = {
   authDomain: "fine-fabrica.firebaseapp.com",
 
   projectId: "fine-fabrica",
+
+  databaseURL: "https://fine-fabrica-default-rtdb.firebaseio.com/",
 
   storageBucket: "fine-fabrica.appspot.com",
 
@@ -66,6 +103,7 @@ const userSignIn = async () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        writeUserData(user.displayName, 0);
         localStorage.setItem("username", user.displayName);
         localStorage.setItem("pfp", user.photoURL);
       })
@@ -80,6 +118,12 @@ const userSignIn = async () => {
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
+    if (user.photoURL != localStorage.getItem("pfp")) {
+      user.photoURL = localStorage.getItem("pfp");
+    }
+    if (user.displayName != localStorage.getItem("username")) {
+      user.displayName = localStorage.getItem("username");
+    }
     document.getElementById("pfp").classList.remove("hidden");
     document.getElementById("pfp").classList.add("inline-block");
     document.getElementById("pfp").src = user.photoURL;
@@ -105,6 +149,7 @@ const signUp = async () => {
   var email = document.getElementById("email").value;
   var password = document.getElementById("pw").value;
   console.log(username, email, password);
+  writeUserData(username, 0);
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
@@ -138,6 +183,7 @@ const login = async () => {
   var email = document.getElementById("lemail").value;
   var password = document.getElementById("lpw").value;
   signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+    writeUserData(user.username, 0);
     const user = userCredential.user;
     document.getElementById("pfp").classList.remove("hidden");
     document.getElementById("pfp").classList.add("inline-block");
@@ -153,6 +199,13 @@ loginButton.addEventListener("click", login);
 const signOutButton = document.getElementById("signOut");
 
 const logOut = async () => {
+  writeItemData(
+    "Powermatic 209HH 20 Inch Planer 1791315",
+    15,
+    "price_1OxZHsH4ceWkCZ13x9mchtst",
+    "none"
+  );
+
   auth
     .signOut()
     .then(function () {
@@ -167,5 +220,62 @@ const logOut = async () => {
   document.getElementById("pfp").classList.remove("inline-block");
   document.getElementById("account").innerHTML = "LOGIN / SIGN UP";
 };
+
+function writeUserData(username, mem) {
+  const db = getDatabase();
+  set(ref(db, "users/" + username), {
+    username: username,
+    membership: mem,
+  });
+}
+
+function readUserData(username) {
+  const dbRef = ref(getDatabase());
+  get(child(dbRef, "users/" + username)).then((snapshot) => {
+    if (snapshot.exists()) {
+      console.log(snapshot.val().membership, snapshot.val().username);
+    } else {
+      console.log("No data");
+    }
+  });
+}
+
+function writeItemData(name, price, stripe, owner) {
+  const db = getDatabase();
+  set(ref(db, "items/" + name), {
+    price: price,
+    stripe: stripe,
+    owner: owner,
+  });
+}
+
+function readItemData(name) {
+  const dbRef = ref(getDatabase());
+  get(child(dbRef, "items/" + name))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log(
+          snapshot.val().name,
+          snapshot.val().owner,
+          snapshot.val().price
+        );
+      } else {
+        console.log("No data");
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
+function getChildren(category, output) {
+  const dbRef = ref(getDatabase());
+  get(query(dbRef)).then((snapshot) => {
+    if (snapshot.exists()) {
+      console.log(snapshot.val());
+      output = snapshot.val();
+    }
+  });
+}
 
 signOutButton.addEventListener("click", logOut);

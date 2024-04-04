@@ -1,47 +1,352 @@
 <!DOCTYPE html>
 <html lang="en" class="font-dm">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fine Fabrica - Account</title>
-    <link rel="icon" type="image/x-icon" href="/src/fine fabrica.svg">
-    <link rel="stylesheet" href="/src/styles.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-</head>
+    <link rel="icon" type="image/x-icon" href="/src/fine fabrica.svg" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
 
-<body class="bg-lm-primary dark:bg-dm-primary   text-lm-text dark:text-dm-text   text-[16px]">
-    
-    <div class="inline-block relative bg-lm-secondary  dark:bg-dm-secondary rounded-lg w-full md:w-[calc(100%-256px)] md:ml-32 min-h-[544px] md:h-auto h-[848px] top-[112px] mb-16" id="logged-out">
-        <div class="float-left space-y-4 p-16 w-full md:w-1/2">
-            <input type="text" id="username" placeholder="Name" name="username" class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue" required> <br>
-            <input type="text" id="email" placeholder="Email" name="email" class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue" required> <br>
-            <input type="password" id="pw" placeholder="Password" name="pw" class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue text-main-blue" required> <br>
-            <button class="w-full h-16 rounded-lg bg-main-blue text-lm-secondary dark:text-dm-secondary" id="signUp"><b>SIGN UP</b></button>
-        </div>
-        <div class="md:float-left space-y-4 p-16 w-full md:w-1/2">
-            <input type="text" id="lemail" placeholder="Email" name="email" class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue" required> <br>
-            <input type="password" id="lpw" placeholder="Password" name="pw" class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue text-main-blue" required> <br>
-            <button class="w-full h-16 rounded-lg bg-main-blue text-lm-secondary dark:text-dm-secondary" id="login"><b>LOGIN</b></button>
-        </div>
-        <div class="w-full px-16 pb-16">
-            <button class="w-full h-16 rounded-lg bg-main-red text-lm-secondary dark:text-dm-secondary" id="google"><b>SIGN IN WITH GOOGLE</b></button>
-        </div>
+  <body
+    class="bg-lm-primary dark:bg-dm-primary text-lm-text dark:text-dm-text text-[16px]"
+  >
+    <div
+      class="inline-block relative bg-lm-secondary dark:bg-dm-secondary rounded-lg w-full md:w-[calc(100%-256px)] md:ml-32 min-h-[544px] md:h-auto h-[848px] top-[112px] mb-16"
+      id="logged-out"
+    >
+      <div class="float-left space-y-4 p-16 w-full md:w-1/2">
+        <input
+          type="text"
+          id="username"
+          placeholder="Name"
+          name="username"
+          class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue"
+          required
+        />
+        <br />
+        <input
+          type="text"
+          id="email"
+          placeholder="Email"
+          name="email"
+          class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue"
+          required
+        />
+        <br />
+        <input
+          type="password"
+          id="pw"
+          placeholder="Password"
+          name="pw"
+          class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue text-main-blue"
+          required
+        />
+        <br />
+        <button
+          class="w-full h-16 rounded-lg bg-main-blue text-lm-secondary dark:text-dm-secondary"
+          id="signUp"
+        >
+          <b>SIGN UP</b>
+        </button>
+      </div>
+      <div class="md:float-left space-y-4 p-16 w-full md:w-1/2">
+        <input
+          type="text"
+          id="lemail"
+          placeholder="Email"
+          name="email"
+          class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue"
+          required
+        />
+        <br />
+        <input
+          type="password"
+          id="lpw"
+          placeholder="Password"
+          name="pw"
+          class="w-full px-4 h-16 rounded-lg bg-lm-primary dark:bg-dm-primary placeholder-main-blue text-main-blue"
+          required
+        />
+        <br />
+        <button
+          class="w-full h-16 rounded-lg bg-main-blue text-lm-secondary dark:text-dm-secondary"
+          id="login"
+        >
+          <b>LOGIN</b>
+        </button>
+      </div>
+      <div class="w-full px-16 pb-16">
+        <button
+          class="w-full h-16 rounded-lg bg-main-red text-lm-secondary dark:text-dm-secondary"
+          id="google"
+        >
+          <b>SIGN IN WITH GOOGLE</b>
+        </button>
+      </div>
     </div>
 
-    <div class="inline-block relative bg-lm-secondary  dark:bg-dm-secondary rounded-lg w-full md:w-[calc(100%-256px)] md:ml-32 md:h top-[112px] mb-16" id="logged-in">
-        <div class="float-left space-y-4 p-16 w-full">
-            <button class="w-full h-16 rounded-lg bg-main-blue text-lm-secondary dark:text-dm-secondary" id="signOut"><b>SIGN OUT</b></button>
-        </div>
-        </div>
+    <div
+      class="inline-block relative bg-lm-secondary dark:bg-dm-secondary rounded-lg w-full md:w-[calc(100%-256px)] md:ml-32 md:h top-[112px] mb-16"
+      id="logged-in"
+    >
+      <div class="float-left space-y-4 p-16 w-full">
+        <button
+          class="p-2 left-20 top-20 h-12 rounded-lg absolute bg-main-red text-lm-secondary dark:text-dm-secondary"
+          id="signOut"
+        >
+          <b>SIGN OUT</b>
+        </button>
+        <h class="float-left text-[24px] text-center w-full font-black"
+          >SETTINGS</h
+        ><span
+          class="top-8 relative block md:flex space-y-16 md:space-y-0 float-none p-4"
+        >
+          <ul
+            class="w-full md:float-left bg-lm-primary dark:bg-dm-primary rounded-lg p-4 list-none space-y-4"
+          >
+            <li
+              class="p-4 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+            >
+              <form method="post" enctype="multipart/form-data">
+                <input
+                  id="imguri"
+                  class="w-[calc(100%-224px)] bg-lm-primary dark:bg-dm-primary rounded-lg h-10 text-lm-text dark:text-dm-text placeholder-lm-text dark:placeholder-dm-text p-2"
+                  type="text"
+                  placeholder="Image Address Here"
+                />
+                <button
+                  type="button"
+                  id="setpfp"
+                  class="float-right h-full ml-8 bg-main-blue dark:bg-dm-blue p-2 rounded-lg font-black text-lm-secondary dark:text-dm-secondary"
+                >
+                  SET PROFILE PICTURE
+                </button>
+              </form>
+            </li>
+            <li
+              class="p-4 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+            >
+              <form method="post" enctype="multipart/form-data">
+                <input
+                  id="newu"
+                  class="w-[calc(100%-176px)] bg-lm-primary dark:bg-dm-primary rounded-lg h-10 text-lm-text dark:text-dm-text placeholder-lm-text dark:placeholder-dm-text p-2"
+                  type="text"
+                  placeholder="New Username"
+                />
+                <button
+                  type="button"
+                  id="setu"
+                  class="float-right h-full ml-8 bg-main-blue dark:bg-dm-blue p-2 rounded-lg font-black text-lm-secondary dark:text-dm-secondary"
+                >
+                  SET USERNAME
+                </button>
+              </form>
+            </li>
+          </ul>
+        </span>
+        <div class="h-16"></div>
+        <h class="float-left text-[24px] text-center w-full font-black"
+          >YOUR PURCHASES</h
+        ><span
+          class="top-8 relative block md:flex space-y-16 md:space-y-0 float-none text-center p-4"
+        >
+          <ul
+            class="w-full md:float-left bg-lm-primary dark:bg-dm-primary rounded-lg p-4 pb-0 list-none space-y-4"
+          >
+            <li
+              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+            >
+              <h2
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+              >
+                3D Systems ProX 950 3D Printer
+              </h2>
+              <button
+                id="prox"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+              >
+                CANCEL
+              </button>
+              <h1
+                class="relative float-left md:float-right -bottom-5 md:bottom-[20px]"
+              >
+                $30
+              </h1>
+            </li>
+            <li
+              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+            >
+              <h2
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+              >
+                Bambu Lab P1S 3D Printer
+              </h2>
+              <button
+                id="bambu"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+              >
+                CANCEL
+              </button>
+              <h1
+                class="relative float-left md:float-right -bottom-5 md:bottom-[20px]"
+              >
+                $25
+              </h1>
+            </li>
+            <li
+              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+            >
+              <h2
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+              >
+                Jet JDP-17MF Floor Drill Press
+              </h2>
+              <button
+                id="jdp"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+              >
+                CANCEL
+              </button>
+              <h1
+                class="relative float-left md:float-right -bottom-5 md:bottom-[20px]"
+              >
+                $15
+              </h1>
+            </li>
+            <li
+              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+            >
+              <h2
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+              >
+                Central Machinery Belt & Disc Sander
+              </h2>
+              <button
+                id="cench"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+              >
+                CANCEL
+              </button>
+              <h1
+                class="relative float-left md:float-right -bottom-5 md:bottom-[20px]"
+              >
+                $10
+              </h1>
+            </li>
+            <li
+              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+            >
+              <h2
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+              >
+                Grizzly 2 HP 120V Hybrid Table Saw
+              </h2>
+              <button
+                id="grizzly"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+              >
+                CANCEL
+              </button>
+              <h1
+                class="relative float-left md:float-right -bottom-5 md:bottom-[20px]"
+              >
+                $30
+              </h1>
+            </li>
+            <li
+              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+            >
+              <h2
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+              >
+                DEWALT DWS715 Miter Saw
+              </h2>
+              <button
+                id="miter"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+              >
+                CANCEL
+              </button>
+              <h1
+                class="relative float-left md:float-right -bottom-5 md:bottom-[20px]"
+              >
+                $20
+              </h1>
+            </li>
+            <li
+              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+            >
+              <h2
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+              >
+                Epilog Laser Fusion Edge Laser Cutter
+              </h2>
+              <button
+                id="laser"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+              >
+                CANCEL
+              </button>
+              <h1
+                class="relative float-left md:float-right -bottom-5 md:bottom-[20px]"
+              >
+                $25
+              </h1>
+            </li>
+            <li
+              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+            >
+              <h2
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+              >
+                Jet Closed Stand Bandsaw
+              </h2>
+              <button
+                id="band"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+              >
+                CANCEL
+              </button>
+              <h1
+                class="relative float-left md:float-right -bottom-5 md:bottom-[20px]"
+              >
+                $20
+              </h1>
+            </li>
+            <li
+              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+            >
+              <h2
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+              >
+                Powermatic 209HH Planer
+              </h2>
+              <button
+                id="planer"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+              >
+                CANCEL
+              </button>
+              <h1
+                class="relative float-left md:float-right -bottom-5 md:bottom-[20px]"
+              >
+                $15
+              </h1>
+            </li>
+          </ul>
+        </span>
+      </div>
     </div>
 
     <script src="/src/theme.js" id="theme"></script>
-    
+
     <script src="/src/constants.js"></script>
 
     <script src="/src/script.js" type="module"></script>
-</body>
-
+  </body>
 </html>
