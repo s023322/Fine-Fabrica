@@ -238,3 +238,25 @@
 
 Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
  
+[debug] [2023-10-29T16:06:26.451Z] Received signal SIGHUP 1
+[debug] [2024-02-25T15:21:23.332Z] ----------------------------------------------------------------------
+[debug] [2024-02-25T15:21:23.334Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\mhive\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js use --add
+[debug] [2024-02-25T15:21:23.334Z] CLI Version:   12.7.0
+[debug] [2024-02-25T15:21:23.334Z] Platform:      win32
+[debug] [2024-02-25T15:21:23.335Z] Node Version:  v20.5.1
+[debug] [2024-02-25T15:21:23.335Z] Time:          Sun Feb 25 2024 10:21:23 GMT-0500 (Eastern Standard Time)
+[debug] [2024-02-25T15:21:23.335Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-25T15:21:23.337Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-02-25T15:21:23.444Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-25T15:21:23.444Z] > authorizing via signed-in user (mhives10@gmail.com)
+[debug] [2024-02-25T15:21:23.445Z] > refreshing access token with scopes: []
+[debug] [2024-02-25T15:21:23.446Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-02-25T15:21:23.446Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-25T15:21:23.593Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-02-25T15:21:23.593Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-02-25T15:21:23.621Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-02-25T15:21:23.621Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-25T15:21:23.627Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2024-02-25T15:21:24.037Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-02-25T15:21:24.037Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
