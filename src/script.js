@@ -22,9 +22,42 @@ import {
 
 //"firebase/app";
 
-var photoUrl;
+var memberships = [
+  "0,https://finefabrica.us.eu.org/pages/account.html",
+  "40,https://buy.stripe.com/test_4gwcNoc4ybqV7rG4gh",
+  "75,https://buy.stripe.com/test_bIY5kW1pU9iNdQ4dQS",
+  "100,https://buy.stripe.com/test_5kAaFgfgK1Ql3bq003",
+];
 
-if (window.location.hostname.includes("account")) {
+var photoUrl;
+if (window.location.href.includes("account")) {
+  if (window.location.href.includes("?")) {
+    var session = window.location.href.split("=");
+    console.log(session[1]);
+    if (session[2]) {
+      if (!localStorage.getItem("lastItem").includes("tier")) {
+        document
+          .getElementById(localStorage.getItem("lastItem" + "f"))
+          .classList.remove("hidden");
+      } else {
+        if (localStorage.getItem("lastItem").includes("1" || "2" || "3")) {
+          document.getElementById("meml").value =
+            "MEMBERSHIP TIER " +
+            localStorage.getItem("lastItem").split("tier")[0];
+        } else {
+          document.getElementById("meml").value = "NO MEMBERSHIP";
+        }
+        document.getElementById("memp").value =
+          "$" +
+          memberships[localStorage.getItem("lastItem").split("tier")[0]].split(
+            ","
+          )[0] +
+          "/MONTH";
+      }
+      localStorage.setItem("lastItem", null);
+    }
+    window.location.href = window.location.href.split("?")[0];
+  }
   document.getElementById("setpfp").addEventListener("click", function () {
     var uri = document.getElementById("imguri").value;
     console.log(uri);
@@ -45,6 +78,8 @@ if (window.location.hostname.includes("account")) {
   document.getElementById("setu").addEventListener("click", function () {
     var newU = document.getElementById("newu").value;
     document.getElementById("account").innerHTML = newU;
+    readUserData(localStorage.getItem("ou"));
+    writeUserData(localStorage.getItem("ou"), newU, dbm, dbp);
     localStorage.setItem("username", newU);
   });
 }
@@ -80,6 +115,10 @@ if (!document.getElementById("google")) {
   throw "";
 }
 
+var dbu, dbp, dbm;
+
+readUserData(localStorage.getItem("ou"));
+
 const signInGoogleButton = document.getElementById("google");
 const userSignIn = async () => {
   window.mobileCheck = function () {
@@ -101,10 +140,13 @@ const userSignIn = async () => {
   if (window.mobileCheck) {
     signInWithPopup(auth, provider)
       .then((result) => {
+        console.log("popup");
         const user = result.user;
-        console.log(user);
-        writeUserData(user.displayName, 0);
+        readUserData(user.displayName);
+        writeUserData(user.displayName, user.displayName, dbm, dbp);
         localStorage.setItem("username", user.displayName);
+        console.log(user.displayName);
+        localStorage.setItem("ou", user.displayName);
         localStorage.setItem("pfp", user.photoURL);
       })
       .catch((error) => {
@@ -113,24 +155,30 @@ const userSignIn = async () => {
       });
   } else {
     signInWithRedirect(auth, provider);
+    console.log("redirect");
   }
 };
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    if (user.photoURL != localStorage.getItem("pfp")) {
-      user.photoURL = localStorage.getItem("pfp");
-    }
-    if (user.displayName != localStorage.getItem("username")) {
-      user.displayName = localStorage.getItem("username");
-    }
+    readUserData(user.displayName);
+    //if (user.photoURL != localStorage.getItem("pfp")) {
+    //  user.photoURL = localStorage.getItem("pfp");
+    //}
+    //if (user.displayName != localStorage.getItem("username")) {
+    //  user.displayName = localStorage.getItem("username");
+    //}
     document.getElementById("pfp").classList.remove("hidden");
     document.getElementById("pfp").classList.add("inline-block");
     document.getElementById("pfp").src = user.photoURL;
-    document.getElementById("account").innerHTML = user.displayName;
+    //document.getElementById("account").innerHTML = dbu;
     document.getElementById("logged-out").classList.add("hidden");
     document.getElementById("logged-in").classList.remove("hidden");
-    localStorage.setItem("username", user.displayName);
+    localStorage.setItem("ou", user.displayName);
+    console.log(user.displayName);
+    //console.log(user.displayName);
+    //console.log(readUserData(user.displayName).split(","));
+    localStorage.setItem("username", dbu);
     localStorage.setItem("pfp", user.photoURL);
   } else {
     document.getElementById("pfp").classList.add("hidden");
@@ -149,7 +197,7 @@ const signUp = async () => {
   var email = document.getElementById("email").value;
   var password = document.getElementById("pw").value;
   console.log(username, email, password);
-  writeUserData(username, 0);
+  writeUserData(username, username, 0, "0");
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
@@ -163,6 +211,7 @@ const signUp = async () => {
       document.getElementById("pfp").src =
         "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg";
       document.getElementById("account").innerHTML = username;
+      localStorage.setItem("ou", username);
       localStorage.setItem("username", username);
       localStorage.setItem(
         "pfp",
@@ -173,6 +222,7 @@ const signUp = async () => {
       const errorCode = error.code;
       const errorMessage = error.message;
     });
+  window.location.href = windo.location.href;
 };
 
 signUpButton.addEventListener("click", signUp);
@@ -183,14 +233,15 @@ const login = async () => {
   var email = document.getElementById("lemail").value;
   var password = document.getElementById("lpw").value;
   signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
-    writeUserData(user.username, 0);
     const user = userCredential.user;
+    readUserData(user.username);
     document.getElementById("pfp").classList.remove("hidden");
     document.getElementById("pfp").classList.add("inline-block");
     document.getElementById("pfp").src = user.photoURL;
     document.getElementById("account").innerHTML = user.username;
-    localStorage.setItem("username", user.username);
     localStorage.setItem("pfp", user.photoURL);
+    localStorage.setItem("ou", user.username);
+    localStorage.setItem("username", dbu);
   });
 };
 
@@ -199,21 +250,13 @@ loginButton.addEventListener("click", login);
 const signOutButton = document.getElementById("signOut");
 
 const logOut = async () => {
-  writeItemData(
-    "Powermatic 209HH 20 Inch Planer 1791315",
-    15,
-    "price_1OxZHsH4ceWkCZ13x9mchtst",
-    "none"
-  );
-
   auth
     .signOut()
-    .then(function () {
-      console.log("signed out");
-    })
+    .then(function () {})
     .catch(function (error) {
       console.log("Error Signing Out");
     });
+  localStorage.setItem("ou", null);
   localStorage.setItem("username", null);
   localStorage.setItem("pfp", null);
   document.getElementById("pfp").classList.add("hidden");
@@ -221,20 +264,28 @@ const logOut = async () => {
   document.getElementById("account").innerHTML = "LOGIN / SIGN UP";
 };
 
-function writeUserData(username, mem) {
+function writeUserData(username, newu, mem, pur) {
   const db = getDatabase();
   set(ref(db, "users/" + username), {
-    username: username,
+    username: newu,
     membership: mem,
+    purchased: pur,
   });
+  window.location.href = window.location.href;
 }
 
 function readUserData(username) {
   const dbRef = ref(getDatabase());
   get(child(dbRef, "users/" + username)).then((snapshot) => {
     if (snapshot.exists()) {
-      console.log(snapshot.val().membership, snapshot.val().username);
+      dbu = snapshot.val().username;
+      dbm = snapshot.val().membership;
+      dbp = snapshot.val().purchased;
+      console.log(dbu + dbm + dbp);
+      document.getElementById("account").innerHTML = dbu;
     } else {
+      dbm = 0;
+      dbp = "0";
       console.log("No data");
     }
   });
@@ -254,13 +305,16 @@ function readItemData(name) {
   get(child(dbRef, "items/" + name))
     .then((snapshot) => {
       if (snapshot.exists()) {
-        console.log(
-          snapshot.val().name,
-          snapshot.val().owner,
+        return (
+          snapshot.val().name +
+          "," +
+          snapshot.val().owner +
+          "," +
           snapshot.val().price
         );
       } else {
         console.log("No data");
+        return null;
       }
     })
     .catch((error) => {

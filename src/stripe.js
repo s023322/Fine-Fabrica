@@ -1,13 +1,13 @@
 var names = [
-  "prox,price_1OxZe6H4ceWkCZ13UTzCvPWD",
-  "bambu,price_1OxZcBH4ceWkCZ13lvCawoOL",
-  "jdp,price_1OxZbJH4ceWkCZ13lELODY9V",
-  "cench,price_1OxZakH4ceWkCZ1379oQqYKN",
-  "grizzly,price_1OxZa1H4ceWkCZ13CIuimqrQ",
-  "miter,price_1OxZZUH4ceWkCZ134YDeUum9",
-  "laser,price_1OxZYoH4ceWkCZ136oBPsFab",
-  "band,price_1OxZXbH4ceWkCZ13O2tAjxhE",
-  "planer,price_1OxZHsH4ceWkCZ13x9mchtst",
+  "prox,https://buy.stripe.com/test_4gweVwecGcuZ8vK144",
+  "bambu,https://buy.stripe.com/test_7sIeVw1pU0Mh4fucMQ",
+  "jdp,https://buy.stripe.com/test_6oEcNo1pU52x5jyeUZ",
+  "cench,https://buy.stripe.com/test_cN2aFgecGgLf7rGaEK",
+  "grizzly,https://buy.stripe.com/test_6oEfZA5Ga1Ql9zO007",
+  "miter,https://buy.stripe.com/test_28o5kW7Oi7aF8vK6ow",
+  "laser,https://buy.stripe.com/test_14k00Cb0u52xcM0fZ7",
+  "band,https://buy.stripe.com/test_28oeVwd8CamRcM0dR0",
+  "planer,https://buy.stripe.com/test_aEUcNo5Ga3YtbHWeV5",
 ];
 
 var links = [];
@@ -16,6 +16,13 @@ links.length = names.length;
 var stripe = Stripe(
   "pk_test_51OnOAzH4ceWkCZ13BXbBaxpkT8RSdA3CgH9yczcnwK5hCAXqm4o551aVupJla4LVXNRP8DlqSTMMYhMXNM7ujPyN00sR6BTImW"
 );
+
+var memberships = [
+  "0,https://finefabrica.us.eu.org/pages/account.html",
+  "40,https://buy.stripe.com/test_4gwcNoc4ybqV7rG4gh",
+  "75,https://buy.stripe.com/test_bIY5kW1pU9iNdQ4dQS",
+  "100,https://buy.stripe.com/test_5kAaFgfgK1Ql3bq003",
+];
 
 console.log(localStorage.getItem("username"), localStorage.getItem("pfp"));
 
@@ -26,7 +33,9 @@ for (let index = 0; index < names.length; index++) {
       localStorage.getItem("username") != (null || "undefined") &&
       localStorage.getItem("pfp") != (null || "undefined")
     ) {
-      stripe.redirectToCheckout({
+      localStorage.setItem("lastItem", names[index].split(",")[0]);
+      window.location.href = names[index].split(",")[1];
+      /*stripe.redirectToCheckout({
         lineItems: [
           {
             price: names[index].split(",")[1],
@@ -36,11 +45,20 @@ for (let index = 0; index < names.length; index++) {
         mode: "payment",
         successUrl: "http://localhost:5500/pages/account.html",
         cancelUrl: "http://localhost:5500/pages/services.html",
-      });
+      });*/
     } else {
       window.location.href = "/pages/account.html";
     }
   });
+}
+
+for (let index = 1; index < memberships.length; index++) {
+  document
+    .getElementById("tier" + index)
+    .addEventListener("click", function () {
+      localStorage.setItem("lastItem", "tier" + index);
+      window.location.href = memberships[index].split(",")[1];
+    });
 }
 
 document.getElementById("tier1").addEventListener("click", function () {
