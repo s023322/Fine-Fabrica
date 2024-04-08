@@ -122,7 +122,7 @@
                 <button
                   type="button"
                   id="setpfp"
-                  class="float-right h-full ml-8 bg-main-blue dark:bg-dm-blue p-2 rounded-lg font-black text-lm-secondary dark:text-dm-secondary"
+                  class="float-right h-full ml-8 bg-main-blue dark:bg-dm-blue p-2 rounded-lg font-black text-lm-secondary dark:text-dm-text"
                 >
                   SET PROFILE PICTURE
                 </button>
@@ -141,7 +141,7 @@
                 <button
                   type="button"
                   id="setu"
-                  class="float-right h-full ml-8 bg-main-blue dark:bg-dm-blue p-2 rounded-lg font-black text-lm-secondary dark:text-dm-secondary"
+                  class="float-right h-full ml-8 bg-main-blue dark:bg-dm-blue p-2 rounded-lg font-black text-lm-secondary dark:text-dm-text"
                 >
                   SET USERNAME
                 </button>
@@ -162,13 +162,42 @@
               class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
             >
               <h2
-                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+                id="meml"
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis pr-0 md:pr-32"
+              >
+                NO MEMBERSHIP
+              </h2>
+              <button
+                id="memc"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary dark:text-dm-text rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2 font-black"
+              >
+                CHANGE
+              </button>
+              <button
+                id="memr"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary dark:text-dm-text rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2 font-black"
+              >
+                UNSUBSCRIBE
+              </button>
+              <h1
+                id="memp"
+                class="relative float-left md:float-right -bottom-5 md:bottom-[20px]"
+              >
+                $0/MONTH
+              </h1>
+            </li>
+            <li
+              id="proxf"
+              class="hidden p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+            >
+              <h2
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis pr-0 md:pr-32"
               >
                 3D Systems ProX 950 3D Printer
               </h2>
               <button
                 id="prox"
-                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary dark:text-dm-text rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2 font-black"
               >
                 CANCEL
               </button>
@@ -179,16 +208,17 @@
               </h1>
             </li>
             <li
-              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+              id="bambuf"
+              class="hidden p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
             >
               <h2
-                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis pr-0 md:pr-32"
               >
                 Bambu Lab P1S 3D Printer
               </h2>
               <button
                 id="bambu"
-                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary dark:text-dm-text rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2 font-black"
               >
                 CANCEL
               </button>
@@ -199,16 +229,17 @@
               </h1>
             </li>
             <li
-              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+              id="jdpf"
+              class="hidden p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
             >
               <h2
-                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis pr-0 md:pr-32"
               >
                 Jet JDP-17MF Floor Drill Press
               </h2>
               <button
                 id="jdp"
-                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary dark:text-dm-text rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2 font-black"
               >
                 CANCEL
               </button>
@@ -219,16 +250,17 @@
               </h1>
             </li>
             <li
-              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+              id="cenchf"
+              class="hidden p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
             >
               <h2
-                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis pr-0 md:pr-32"
               >
                 Central Machinery Belt & Disc Sander
               </h2>
               <button
                 id="cench"
-                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary dark:text-dm-text rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2 font-black"
               >
                 CANCEL
               </button>
@@ -239,16 +271,17 @@
               </h1>
             </li>
             <li
-              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+              id="grizzlyf"
+              class="hidden p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
             >
               <h2
-                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis pr-0 md:pr-32"
               >
                 Grizzly 2 HP 120V Hybrid Table Saw
               </h2>
               <button
                 id="grizzly"
-                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary dark:text-dm-text rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2 font-black"
               >
                 CANCEL
               </button>
@@ -259,16 +292,17 @@
               </h1>
             </li>
             <li
-              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+              id="miterf"
+              class="hidden p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
             >
               <h2
-                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis pr-0 md:pr-32"
               >
                 DEWALT DWS715 Miter Saw
               </h2>
               <button
                 id="miter"
-                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary dark:text-dm-text rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2 font-black"
               >
                 CANCEL
               </button>
@@ -279,16 +313,17 @@
               </h1>
             </li>
             <li
-              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+              id="laserf"
+              class="hidden p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
             >
               <h2
-                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis pr-0 md:pr-32"
               >
                 Epilog Laser Fusion Edge Laser Cutter
               </h2>
               <button
                 id="laser"
-                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary dark:text-dm-text rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2 font-black"
               >
                 CANCEL
               </button>
@@ -299,16 +334,17 @@
               </h1>
             </li>
             <li
-              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+              id="bandf"
+              class="hidden p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
             >
               <h2
-                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis pr-0 md:pr-32"
               >
                 Jet Closed Stand Bandsaw
               </h2>
               <button
                 id="band"
-                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary dark:text-dm-text rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2 font-black"
               >
                 CANCEL
               </button>
@@ -319,16 +355,17 @@
               </h1>
             </li>
             <li
-              class="p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
+              id="planerf"
+              class="hidden p-4 h-24 md:h-14 bg-lm-secondary dark:bg-dm-secondary rounded-lg align-middle"
             >
               <h2
-                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis -ml-2 pr-0 md:pr-32"
+                class="md:w-full h-[20px] text-left font-black overflow-hidden overflow-ellipsis pr-0 md:pr-32"
               >
                 Powermatic 209HH Planer
               </h2>
               <button
                 id="planer"
-                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2"
+                class="relative float-left md:float-right ml-4 bg-main-blue text-lm-secondary dark:text-dm-text rounded-lg -bottom-3 md:bottom-[28px] -left-6 md:left-2 p-2 font-black"
               >
                 CANCEL
               </button>
