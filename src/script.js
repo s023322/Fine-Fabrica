@@ -41,6 +41,7 @@ document.getElementById("memu").addEventListener("click", function () {
   for (let index = 0; index < memberships.length; index++) {
     if (memberships[index].includes(memPrice)) {
       window.location.href = memberships[index + 1].split(",")[1];
+      localStorage.setItem("lastItem", "tier" + index + 1);
       memPrice = "asdklasdjkljasdl";
     }
   }
