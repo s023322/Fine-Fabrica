@@ -30,6 +30,21 @@ var memberships = [
 ];
 
 var photoUrl;
+
+document.getElementById("memu").addEventListener("click", function () {
+  var memPrice = document
+    .getElementById("memp")
+    .innerHTML.split("$")[1]
+    .split("/MONTH")[0]
+    .split(" ")[0];
+  console.log(memPrice);
+  for (let index = 0; index < memberships.length; index++) {
+    if (memberships[index].includes(memPrice)) {
+      window.location.href = memberships[index + 1].split(",")[1];
+      memPrice = "asdklasdjkljasdl";
+    }
+  }
+});
 if (window.location.href.includes("account")) {
   if (window.location.href.includes("?")) {
     var session = window.location.href.split("=");
@@ -41,11 +56,13 @@ if (window.location.href.includes("account")) {
           .classList.remove("hidden");
       } else {
         if (localStorage.getItem("lastItem").includes("1" || "2" || "3")) {
+          console.log(localStorage.getItem("lastItem"));
           document.getElementById("meml").value =
             "MEMBERSHIP TIER " +
             localStorage.getItem("lastItem").split("tier")[0];
         } else {
           document.getElementById("meml").value = "NO MEMBERSHIP";
+          console.log(localStorage.getItem("lastItem"));
         }
         document.getElementById("memp").value =
           "$" +
@@ -57,6 +74,8 @@ if (window.location.href.includes("account")) {
       localStorage.setItem("lastItem", null);
     }
     window.location.href = window.location.href.split("?")[0];
+  } else {
+    localStorage.setItem("lastItem", "null");
   }
   document.getElementById("setpfp").addEventListener("click", function () {
     var uri = document.getElementById("imguri").value;
@@ -77,10 +96,16 @@ if (window.location.href.includes("account")) {
 
   document.getElementById("setu").addEventListener("click", function () {
     var newU = document.getElementById("newu").value;
-    document.getElementById("account").innerHTML = newU;
-    readUserData(localStorage.getItem("ou"));
-    writeUserData(localStorage.getItem("ou"), newU, dbm, dbp);
-    localStorage.setItem("username", newU);
+    if (newU != "null") {
+      document.getElementById("newu").classList.remove("text-main-red");
+      document.getElementById("account").innerHTML = newU;
+      readUserData(localStorage.getItem("ou"));
+      writeUserData(localStorage.getItem("ou"), newU, dbm, dbp);
+      localStorage.setItem("username", newU);
+      console.log("asdlkjasdklj");
+    } else {
+      document.getElementById("newu").classList.add("text-main-red");
+    }
   });
 }
 if (document.getElementById("logged-out")) {
@@ -170,7 +195,14 @@ onAuthStateChanged(auth, (user) => {
     //}
     document.getElementById("pfp").classList.remove("hidden");
     document.getElementById("pfp").classList.add("inline-block");
+    if (
+      localStorage.getItem("pfp") != "null" &&
+      localStorage.getItem("pfp") != null
+    ) {
+      user.photoURL = localStorage.getItem("pfp");
+    }
     document.getElementById("pfp").src = user.photoURL;
+
     //document.getElementById("account").innerHTML = dbu;
     document.getElementById("logged-out").classList.add("hidden");
     document.getElementById("logged-in").classList.remove("hidden");
@@ -222,7 +254,7 @@ const signUp = async () => {
       const errorCode = error.code;
       const errorMessage = error.message;
     });
-  window.location.href = windo.location.href;
+  window.location.href = window.location.href;
 };
 
 signUpButton.addEventListener("click", signUp);
@@ -271,7 +303,9 @@ function writeUserData(username, newu, mem, pur) {
     membership: mem,
     purchased: pur,
   });
-  window.location.href = window.location.href;
+  setTimeout(function () {
+    window.location.href = window.location.href;
+  }, 100);
 }
 
 function readUserData(username) {
