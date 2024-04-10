@@ -31,30 +31,37 @@ var memberships = [
 
 var photoUrl;
 
-document.getElementById("memu").addEventListener("click", function () {
-  var memPrice = document
-    .getElementById("memp")
-    .innerHTML.split("$")[1]
-    .split("/MONTH")[0]
-    .split(" ")[0];
-  console.log(memPrice);
-  for (let index = 0; index < memberships.length; index++) {
-    if (memberships[index].includes(memPrice)) {
-      window.location.href = memberships[index + 1].split(",")[1];
-      localStorage.setItem("lastItem", "tier" + index + 1);
-      memPrice = "asdklasdjkljasdl";
-    }
-  }
-});
+console.log(localStorage.getItem("username"), localStorage.getItem("pfp"));
+
 if (window.location.href.includes("account")) {
+  /*document.getElementById("memu").addEventListener("click", function () {
+    var memPrice = document
+      .getElementById("memp")
+      .innerHTML.split("$")[1]
+      .split("/MONTH")[0]
+      .split(" ")[0];
+    console.log(memPrice);
+    for (let index = 0; index < memberships.length; index++) {
+      if (memberships[index].includes(memPrice)) {
+        window.location.href = memberships[index + 1].split(",")[1];
+        localStorage.setItem("lastItem", "tier" + (index + 1).toString());
+        memPrice = "none";
+      }
+    }
+  });*/
   if (window.location.href.includes("?")) {
+    window.location.href = window.location.href.split("?")[0];
+  }
+  //document.getElementById("proxf").classList.add("hidden");
+  /*if (window.location.href.includes("?")) {
     var session = window.location.href.split("=");
-    console.log(session[1]);
-    if (session[2]) {
+    console.log(session);
+    if (session[1]) {
+      console.log("next");
       if (!localStorage.getItem("lastItem").includes("tier")) {
-        document
-          .getElementById(localStorage.getItem("lastItem" + "f"))
-          .classList.remove("hidden");
+        var id = localStorage.getItem("lastItem") + "f";
+        console.log(id);
+        document.getElementById(id).classList.add("hidden");
       } else {
         if (localStorage.getItem("lastItem").includes("1" || "2" || "3")) {
           console.log(localStorage.getItem("lastItem"));
@@ -65,19 +72,23 @@ if (window.location.href.includes("account")) {
           document.getElementById("meml").value = "NO MEMBERSHIP";
           console.log(localStorage.getItem("lastItem"));
         }
-        document.getElementById("memp").value =
-          "$" +
-          memberships[localStorage.getItem("lastItem").split("tier")[0]].split(
-            ","
-          )[0] +
-          "/MONTH";
+        document.getElementById("memp").innerHTML = memberships[
+          Number(localStorage.getItem("lastItem").split("tier")[0] + 1)
+        ]
+          .split(",")[0]
+          .toString();
+        console.log(
+          memberships[
+            Number(localStorage.getItem("lastItem").split("tier")[0] + 1)
+          ].split(",")[0]
+        );
       }
       localStorage.setItem("lastItem", null);
     }
     window.location.href = window.location.href.split("?")[0];
   } else {
     localStorage.setItem("lastItem", "null");
-  }
+  }*/
   document.getElementById("setpfp").addEventListener("click", function () {
     var uri = document.getElementById("imguri").value;
     console.log(uri);
@@ -186,14 +197,17 @@ const userSignIn = async () => {
 };
 
 onAuthStateChanged(auth, (user) => {
+  console.log("change");
   if (user) {
     readUserData(user.displayName);
+    console.log(user);
     //if (user.photoURL != localStorage.getItem("pfp")) {
     //  user.photoURL = localStorage.getItem("pfp");
     //}
     //if (user.displayName != localStorage.getItem("username")) {
     //  user.displayName = localStorage.getItem("username");
     //}
+    console.log(localStorage.getItem("pfp"), localStorage.getItem("username"));
     document.getElementById("pfp").classList.remove("hidden");
     document.getElementById("pfp").classList.add("inline-block");
     if (
@@ -208,10 +222,14 @@ onAuthStateChanged(auth, (user) => {
     document.getElementById("logged-out").classList.add("hidden");
     document.getElementById("logged-in").classList.remove("hidden");
     localStorage.setItem("ou", user.displayName);
-    console.log(user.displayName);
     //console.log(user.displayName);
     //console.log(readUserData(user.displayName).split(","));
-    localStorage.setItem("username", dbu);
+    readUserData(user.displayName);
+    console.log(dbu);
+    if (dbu != "undefined" && dbu != null) {
+      localStorage.setItem("username", dbu);
+      console.log(localStorage.getItem("username"));
+    }
     localStorage.setItem("pfp", user.photoURL);
   } else {
     document.getElementById("pfp").classList.add("hidden");
@@ -304,9 +322,10 @@ function writeUserData(username, newu, mem, pur) {
     membership: mem,
     purchased: pur,
   });
+  localStorage.setItem("username", newu);
   setTimeout(function () {
     window.location.href = window.location.href;
-  }, 100);
+  }, 500);
 }
 
 function readUserData(username) {
@@ -317,7 +336,11 @@ function readUserData(username) {
       dbm = snapshot.val().membership;
       dbp = snapshot.val().purchased;
       console.log(dbu + dbm + dbp);
-      document.getElementById("account").innerHTML = dbu;
+      if (dbu != "undefined" && dbu != null && dbu != "null") {
+        document.getElementById("account").innerHTML = dbu;
+      } else {
+        document.getElementById("account").innerHTML = username;
+      }
     } else {
       dbm = 0;
       dbp = "0";
