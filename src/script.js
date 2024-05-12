@@ -33,8 +33,22 @@ var photoUrl;
 
 console.log(localStorage.getItem("username"), localStorage.getItem("pfp"));
 
+document.getElementById("pw").addEventListener("keypress", function(event) {
+  if (event.key == "Enter") {
+    event.preventDefault();
+    document.getElementById("signUp").click();
+  }
+})
+
+document.getElementById("lpw").addEventListener("keypress", function(event) {
+  if (event.key == "Enter") {
+    event.preventDefault();
+    document.getElementById("login").click();
+  }
+})
+
 if (window.location.href.includes("account")) {
-  /*document.getElementById("memu").addEventListener("click", function () {
+  document.getElementById("memu").addEventListener("click", function () {
     var memPrice = document
       .getElementById("memp")
       .innerHTML.split("$")[1]
@@ -48,12 +62,12 @@ if (window.location.href.includes("account")) {
         memPrice = "none";
       }
     }
-  });*/
+  });
   if (window.location.href.includes("?")) {
     window.location.href = window.location.href.split("?")[0];
   }
-  //document.getElementById("proxf").classList.add("hidden");
-  /*if (window.location.href.includes("?")) {
+  document.getElementById("proxf").classList.add("hidden");
+  if (window.location.href.includes("?")) {
     var session = window.location.href.split("=");
     console.log(session);
     if (session[1]) {
@@ -88,7 +102,7 @@ if (window.location.href.includes("account")) {
     window.location.href = window.location.href.split("?")[0];
   } else {
     localStorage.setItem("lastItem", "null");
-  }*/
+  }
   document.getElementById("setpfp").addEventListener("click", function () {
     var uri = document.getElementById("imguri").value;
     console.log(uri);
@@ -197,7 +211,6 @@ const userSignIn = async () => {
 };
 
 onAuthStateChanged(auth, (user) => {
-  console.log("change");
   if (user) {
     readUserData(user.displayName);
     console.log(user);
@@ -244,11 +257,11 @@ signInGoogleButton.addEventListener("click", userSignIn);
 const signUpButton = document.getElementById("signUp");
 
 const signUp = async () => {
+  console.log("signup");
   var username = document.getElementById("username").value;
   var email = document.getElementById("email").value;
   var password = document.getElementById("pw").value;
   console.log(username, email, password);
-  writeUserData(username, username, 0, "0");
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
@@ -262,18 +275,19 @@ const signUp = async () => {
       document.getElementById("pfp").src =
         "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg";
       document.getElementById("account").innerHTML = username;
+      writeUserData(username, username, 0, "0");
       localStorage.setItem("ou", username);
       localStorage.setItem("username", username);
       localStorage.setItem(
         "pfp",
         "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg"
       );
+      console.log(username);
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
     });
-  window.location.href = window.location.href;
 };
 
 signUpButton.addEventListener("click", signUp);
@@ -322,10 +336,10 @@ function writeUserData(username, newu, mem, pur) {
     membership: mem,
     purchased: pur,
   });
+  console.log(newu, username);
   localStorage.setItem("username", newu);
-  setTimeout(function () {
-    window.location.href = window.location.href;
-  }, 500);
+  setTimeout(function () {}, 500);
+  //window.location.href = window.location.href;
 }
 
 function readUserData(username) {
@@ -356,6 +370,9 @@ function writeItemData(name, price, stripe, owner) {
     stripe: stripe,
     owner: owner,
   });
+  setTimeout(function () {
+    window.location.href = window.location.href;
+  }, 50);
 }
 
 function readItemData(name) {
