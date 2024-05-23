@@ -1,5 +1,5 @@
 <div
-  class="bg-lm-secondary dark:bg-dm-secondary fixed top-0 w-full md:w-[calc(100%-32px)] h-12 overflow-hidden text-center select-none m-0 md:m-4 rounded-b-lg md:rounded-lg z-50"
+  class="bg-lm-secondary dark:bg-dm-secondary fixed top-0 w-full md:w-[calc(100%-32px)] h-12 overflow-visible text-center select-none m-0 md:m-4 rounded-b-lg md:rounded-lg z-50"
 >
   <ul class="list-none m-0 p-0 font-bold leading-[48px]">
     <li class="block md:hidden">
@@ -69,8 +69,18 @@
       <li class="float-left px-4">
         <a href="/pages/about.html">ABOUT</a>
       </li>
-      <li class="float-right px-4">
-        <button class="icon" type="button" onclick="mode()">
+      <li class="float-right px-4 h-12 inline overflow-visible rounded-lg">
+        <button class="icon mr-4" id="searchButton" type="button" onclick="openSearch()">
+          <p>search</p>
+        </button>
+        <div class="inline hidden absolute top-0 left-0 bg-lm-secondary dark:bg-dm-secondary w-full h-12 rounded-lg" id="searchInput">
+          <input type="text" id="searchForm" placeholder="Search" class="inline-block absolute left-0 px-16 w-full top-0 h-full rounded-lg bg-dm-text dark:bg-lm-text placeholder:text-lm-text dark:placeholder:text-dm-text"></input>
+          <button class="icon text-main-red absolute left-4" type="button" onclick="search()" id="search">search</button>
+          <button class="icon text-main-blue absolute right-4" type="button" onclick="closeSearch()" id="exit">close</button>
+          <div class="block absolute top-16 bg-lm-secondary dark:bg-dm-secondary min-h-16 w-full rounded-lg" id="results">
+          </div>
+        </div>
+        <button class="icon inline" type="button" onclick="mode()">
           <p id="theme_change">dark_mode</p>
         </button>
       </li>

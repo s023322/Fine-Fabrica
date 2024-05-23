@@ -566,6 +566,10 @@ video {
   left: -1.5rem;
 }
 
+.left-0 {
+  left: 0px;
+}
+
 .left-1 {
   left: 0.25rem;
 }
@@ -576,6 +580,14 @@ video {
 
 .left-20 {
   left: 5rem;
+}
+
+.left-4 {
+  left: 1rem;
+}
+
+.right-4 {
+  right: 1rem;
 }
 
 .top-0 {
@@ -630,36 +642,16 @@ video {
   top: 640px;
 }
 
-.top-\[320px\] {
-  top: 320px;
-}
-
-.top-\[10px\] {
-  top: 10px;
-}
-
-.top-\[160px\] {
-  top: 160px;
-}
-
-.top-\[140px\] {
-  top: 140px;
-}
-
-.top-\[240px\] {
-  top: 240px;
-}
-
-.top-\[128px\] {
-  top: 128px;
-}
-
-.top-\[96px\] {
-  top: 96px;
-}
-
 .top-\[64px\] {
   top: 64px;
+}
+
+.top-64 {
+  top: 16rem;
+}
+
+.top-16 {
+  top: 4rem;
 }
 
 .z-10 {
@@ -767,6 +759,10 @@ video {
   display: inline-block;
 }
 
+.inline {
+  display: inline;
+}
+
 .flex {
   display: flex;
 }
@@ -825,6 +821,10 @@ video {
 
 .h-full {
   height: 100%;
+}
+
+.h-64 {
+  height: 16rem;
 }
 
 .min-h-\[384px\] {
@@ -914,6 +914,10 @@ video {
   overflow: hidden;
 }
 
+.overflow-visible {
+  overflow: visible;
+}
+
 .overflow-ellipsis {
   text-overflow: ellipsis;
 }
@@ -937,6 +941,11 @@ video {
 
 .bg-\[\#D1CFE2BF\] {
   background-color: #D1CFE2BF;
+}
+
+.bg-dm-text {
+  --tw-bg-opacity: 1;
+  background-color: rgb(246 224 223 / var(--tw-bg-opacity));
 }
 
 .bg-lm-primary {
@@ -1214,6 +1223,16 @@ video {
   filter: url("#sharpBlur");
 }
 
+.placeholder\:text-lm-text::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(14 0 4 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-lm-text::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(14 0 4 / var(--tw-text-opacity));
+}
+
 :is(.dark .dark\:bg-\[\#001929BF\]) {
   background-color: #001929BF;
 }
@@ -1226,6 +1245,11 @@ video {
 :is(.dark .dark\:bg-dm-secondary) {
   --tw-bg-opacity: 1;
   background-color: rgb(22 20 51 / var(--tw-bg-opacity));
+}
+
+:is(.dark .dark\:bg-lm-text) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 0 4 / var(--tw-bg-opacity));
 }
 
 :is(.dark .dark\:text-dm-primary) {
@@ -1251,6 +1275,16 @@ video {
 :is(.dark .dark\:placeholder-dm-text)::placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(246 224 223 / var(--tw-placeholder-opacity));
+}
+
+:is(.dark .dark\:placeholder\:text-dm-text)::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(246 224 223 / var(--tw-text-opacity));
+}
+
+:is(.dark .dark\:placeholder\:text-dm-text)::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(246 224 223 / var(--tw-text-opacity));
 }
 
 @media (min-width: 640px) {

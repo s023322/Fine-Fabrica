@@ -48,7 +48,7 @@ document.getElementById("lpw").addEventListener("keypress", function(event) {
 })
 
 if (window.location.href.includes("account")) {
-  document.getElementById("memu").addEventListener("click", function () {
+  /*document.getElementById("memu").addEventListener("click", function () {
     var memPrice = document
       .getElementById("memp")
       .innerHTML.split("$")[1]
@@ -62,11 +62,11 @@ if (window.location.href.includes("account")) {
         memPrice = "none";
       }
     }
-  });
+  });*/
   if (window.location.href.includes("?")) {
     window.location.href = window.location.href.split("?")[0];
   }
-  document.getElementById("proxf").classList.add("hidden");
+  /*document.getElementById("proxf").classList.add("hidden");
   if (window.location.href.includes("?")) {
     var session = window.location.href.split("=");
     console.log(session);
@@ -102,7 +102,7 @@ if (window.location.href.includes("account")) {
     window.location.href = window.location.href.split("?")[0];
   } else {
     localStorage.setItem("lastItem", "null");
-  }
+  }*/
   document.getElementById("setpfp").addEventListener("click", function () {
     var uri = document.getElementById("imguri").value;
     console.log(uri);
@@ -134,10 +134,10 @@ if (window.location.href.includes("account")) {
     }
   });
 }
-if (document.getElementById("logged-out")) {
-  document.getElementById("logged-out").classList.remove("hidden");
-  document.getElementById("logged-in").classList.add("hidden");
-}
+  if (document.getElementById("logged-out")) {
+    document.getElementById("logged-out").classList.remove("hidden");
+    document.getElementById("logged-in").classList.add("hidden");
+  }
 
 const firebaseConfig = {
   apiKey: "AIzaSyDEpd6JbHX4NCCgLdRrY67bEKvNBtBvQlo",
